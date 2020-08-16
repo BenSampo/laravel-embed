@@ -1,7 +1,7 @@
 {
     "name": "bensampo/laravel-embed",
     "type": "library",
-    "description": "Simple responsive embeds for video, slideshows etc.",
+    "description": "Painless responsive embeds for videos, slideshows and more.",
     "keywords": [
         "bensampo",
         "embed",
