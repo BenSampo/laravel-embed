@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+        >
+    <testsuites>
+        <testsuite name="Main Tests">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
+        <testsuite name="Service Tests">
+            <directory suffix="Test.php">./tests/Services</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
