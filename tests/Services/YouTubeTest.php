@@ -7,6 +7,10 @@ use BenSampo\Embed\Tests\Cases\ServiceTestCase;
 
 class YouTubeTest extends ServiceTestCase
 {
+    protected function serviceClass(): string {
+        return YouTube::class;
+    }
+    
     protected function expectedViewName(): string {
         return 'youtube';
     }
@@ -15,10 +19,6 @@ class YouTubeTest extends ServiceTestCase
         return [
             'videoId' => 'dQw4w9WgXcQ',
         ];
-    }
-
-    protected function serviceClass(): string {
-        return YouTube::class;
     }
 
     protected function validUrls(): array

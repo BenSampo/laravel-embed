@@ -6,11 +6,11 @@ use BenSampo\Embed\ServiceContract;
 
 abstract class ServiceTestCase extends ApplicationTestCase
 {
+    abstract protected function serviceClass(): string
+    ;
     abstract protected function expectedViewName(): string;
 
     abstract protected function expectedViewData(): array;
-    
-    abstract protected function serviceClass(): string;
 
     abstract protected function validUrls(): array;
 
