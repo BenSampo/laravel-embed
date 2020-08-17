@@ -2,9 +2,9 @@
 
 namespace BenSampo\Embed\ViewComponents;
 
-use BenSampo\Embed\ServiceFactory;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use BenSampo\Embed\ServiceFactory;
+use Illuminate\Support\Facades\Cache;
 
 class EmbedViewComponent extends Component
 {
@@ -15,8 +15,10 @@ class EmbedViewComponent extends Component
         $this->url = $url;
     }
 
-    public function render(): View
+    public function render(): string
     {
-        return ServiceFactory::getByUrl($this->url)->render();
+        return Cache::rememberForever($this->url, function () {
+            return ServiceFactory::getByUrl($this->url)->render()->render();
+        });
     }
 }
