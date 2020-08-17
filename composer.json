@@ -19,8 +19,9 @@
     ],
     "require": {
         "php": "^7.4.0",
-        "illuminate/support": "^7.5",
-        "illuminate/contracts": "^7.5"
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/contracts": "^7.5",
+        "illuminate/support": "^7.5"
     },
     "require-dev": {
         "laravel/framework": "^7.5",
