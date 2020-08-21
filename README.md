@@ -16,7 +16,7 @@ Created by [Ben Sampson](https://sampo.co.uk)
 
 ### Requirements
 
-- Laravel `7.5` or newer  
+- Laravel `7.25` or newer  
 - PHP `7.4.0` or newer
 
 Via Composer
