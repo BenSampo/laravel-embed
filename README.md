@@ -29,4 +29,5 @@ composer require bensampo/laravel-embed
 
 ```html
 <x-embed url="https://www.youtube.com/watch?v=oHg5SJYRHA0" />
+<x-embed url="https://www.youtube.com/watch?v=oHg5SJYRHA0" aspect-ratio="4:3" />
 ```

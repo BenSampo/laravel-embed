@@ -22,7 +22,7 @@ abstract class ServiceTestCase extends ApplicationTestCase
 
     public function test_it_renders_the_correct_view()
     {
-        $this->assertEquals('embed::services.' . $this->expectedViewName(), $this->service()->render()->name());
+        $this->assertEquals('embed::services.' . $this->expectedViewName(), $this->service()->view()->name());
     }
 
     public function test_it_detects_appropriate_urls()
@@ -34,6 +34,8 @@ abstract class ServiceTestCase extends ApplicationTestCase
 
     public function test_it_has_expected_view_data()
     {
-        $this->assertEquals($this->expectedViewData(), $this->service()->render()->getData());
+        foreach ($this->expectedViewData() as $key => $value) {
+            $this->assertEquals($value, $this->service()->view()->getData()[$key]);
+        }
     }
 }

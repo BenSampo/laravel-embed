@@ -1,4 +1,4 @@
-<x-embed-responsive-wrapper>
+<x-embed-responsive-wrapper :aspect-ratio="$aspectRatio">
     <iframe 
         src="https://www.youtube-nocookie.com/embed/{{ $videoId }}" 
         frameborder="0" 
