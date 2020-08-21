@@ -3,6 +3,7 @@
 namespace BenSampo\Embed;
 
 use Symfony\Component\Finder\Finder;
+use BenSampo\Embed\Tests\Fakes\ServiceFactoryFake;
 use BenSampo\Embed\Exceptions\ServiceNotFoundException;
 
 class ServiceFactory
@@ -21,6 +22,11 @@ class ServiceFactory
         }
 
         throw new ServiceNotFoundException($url);
+    }
+
+    public static function fake(): void
+    {
+        app()->instance(ServiceFactory::class, new ServiceFactoryFake);
     }
 
     protected static function resolve(): self
