@@ -7,15 +7,18 @@ use BenSampo\Embed\Tests\Cases\ServiceTestCase;
 
 class SlideshareTest extends ServiceTestCase
 {
-    protected function serviceClass(): string {
+    protected function serviceClass(): string
+    {
         return Slideshare::class;
     }
     
-    protected function expectedViewName(): string {
+    protected function expectedViewName(): string
+    {
         return 'slideshare';
     }
 
-    protected function expectedViewData(): array {
+    protected function expectedViewData(): array
+    {
         return [
             'iframeUrl' => 'https://www.slideshare.net/slideshow/embed_code/key/6PCWPGFw9SwsAY',
         ];

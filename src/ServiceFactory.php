@@ -5,6 +5,7 @@ namespace BenSampo\Embed;
 use Symfony\Component\Finder\Finder;
 use BenSampo\Embed\Tests\Fakes\ServiceFactoryFake;
 use BenSampo\Embed\Exceptions\ServiceNotFoundException;
+use BenSampo\Embed\Services\Fallback;
 
 class ServiceFactory
 {
@@ -22,6 +23,11 @@ class ServiceFactory
         }
 
         throw new ServiceNotFoundException($url);
+    }
+
+    public static function getFallback(string $url): ServiceContract
+    {
+        return new Fallback($url);
     }
 
     public static function fake(): void

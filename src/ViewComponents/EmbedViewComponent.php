@@ -4,13 +4,15 @@ namespace BenSampo\Embed\ViewComponents;
 
 use Illuminate\View\Component;
 use BenSampo\Embed\ServiceFactory;
-use Illuminate\Support\Facades\Cache;
 use BenSampo\Embed\ValueObjects\Ratio;
+use BenSampo\Embed\Exceptions\ServiceNotFoundException;
+use BenSampo\Embed\ServiceContract;
 
 class EmbedViewComponent extends Component
 {
-    public string $url;
-    public ?Ratio $aspectRatio;
+    protected ServiceContract $service;
+    protected string $url;
+    protected ?Ratio $aspectRatio;
 
     public function __construct(string $url, string $aspectRatio = null)
     {
@@ -20,11 +22,15 @@ class EmbedViewComponent extends Component
 
     public function render(): string
     {
-        return Cache::rememberForever($this->url, function () {
-            return ServiceFactory::getByUrl($this->url)
-                ->setAspectRatio($this->aspectRatio)
-                ->view()
-                ->render();
-        });
+        try {
+            $this->service = ServiceFactory::getByUrl($this->url);
+        } catch (ServiceNotFoundException $th) {
+            $this->service = ServiceFactory::getFallback($this->url);
+        }
+
+        return $this->service
+            ->setAspectRatio($this->aspectRatio)
+            ->view()
+            ->render();
     }
 }

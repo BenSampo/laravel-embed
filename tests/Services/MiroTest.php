@@ -7,15 +7,18 @@ use BenSampo\Embed\Tests\Cases\ServiceTestCase;
 
 class MiroTest extends ServiceTestCase
 {
-    protected function serviceClass(): string {
+    protected function serviceClass(): string
+    {
         return Miro::class;
     }
     
-    protected function expectedViewName(): string {
+    protected function expectedViewName(): string
+    {
         return 'miro';
     }
 
-    protected function expectedViewData(): array {
+    protected function expectedViewData(): array
+    {
         return [
             'iframeUrl' => 'https://miro.com/app/embed/o9J_kquX_s8=/?autoplay=yep',
         ];

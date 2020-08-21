@@ -7,15 +7,18 @@ use BenSampo\Embed\Tests\Cases\ServiceTestCase;
 
 class VimeoTest extends ServiceTestCase
 {
-    protected function serviceClass(): string {
+    protected function serviceClass(): string
+    {
         return Vimeo::class;
     }
     
-    protected function expectedViewName(): string {
+    protected function expectedViewName(): string
+    {
         return 'vimeo';
     }
 
-    protected function expectedViewData(): array {
+    protected function expectedViewData(): array
+    {
         return [
             'videoId' => '148751763',
         ];

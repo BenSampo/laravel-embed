@@ -3,6 +3,7 @@
 namespace BenSampo\Embed\Tests;
 
 use BenSampo\Embed\ServiceFactory;
+use BenSampo\Embed\Services\Fallback;
 use BenSampo\Embed\Tests\Fixtures\Services\Dummy;
 use BenSampo\Embed\Tests\Cases\ApplicationTestCase;
 use BenSampo\Embed\Tests\Fixtures\Services\DummyTwo;
@@ -24,6 +25,11 @@ class ServiceFactoryTest extends ApplicationTestCase
         
         $this->expectException(ServiceNotFoundException::class);
 
-        ServiceFactory::getByUrl('https://unknown-service.com');
+        ServiceFactory::getByUrl('https://non-existing-service.com');
+    }
+
+    public function test_it_can_get_a_fallback_service()
+    {
+        $this->assertInstanceOf(Fallback::class, ServiceFactory::getFallback('https://non-existing-service.com'));
     }
 }
