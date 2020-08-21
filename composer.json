@@ -19,12 +19,12 @@
     ],
     "require": {
         "php": "^7.4.0",
-        "guzzlehttp/guzzle": "^7.0",
-        "illuminate/contracts": "^7.5",
-        "illuminate/support": "^7.5"
+        "guzzlehttp/guzzle": "^6.3.1|^7.0",
+        "illuminate/contracts": "^7.25",
+        "illuminate/support": "^7.25"
     },
     "require-dev": {
-        "laravel/framework": "^7.5",
+        "laravel/framework": "^7.25",
         "orchestra/testbench": "^5.0",
         "phpunit/phpunit": "^8.5"
     },
