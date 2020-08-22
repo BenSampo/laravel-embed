@@ -3,20 +3,21 @@
 namespace BenSampo\Embed;
 
 use BenSampo\Embed\ValueObjects\Ratio;
+use BenSampo\Embed\ValueObjects\Url;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
 
 abstract class ServiceBase implements ServiceContract
 {
-    protected string $url;
+    protected Url $url;
     protected ?Ratio $aspectRatio;
 
-    public function __construct(string $url)
+    public function __construct(Url $url)
     {
-        $this->url = $url;    
+        $this->url = $url;
     }
 
-    abstract public static function detect(string $url): bool;
+    abstract public static function detect(Url $url): bool;
     
     public function view(): View
     {

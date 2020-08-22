@@ -3,10 +3,11 @@
 namespace BenSampo\Embed\Services;
 
 use BenSampo\Embed\ServiceBase;
+use BenSampo\Embed\ValueObjects\Url;
 
 class Fallback extends ServiceBase
 {
-    public static function detect(string $url): bool
+    public static function detect(Url $url): bool
     {
         return false;
     }

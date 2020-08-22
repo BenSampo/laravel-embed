@@ -5,11 +5,12 @@ namespace BenSampo\Embed\Services;
 use DOMDocument;
 use Illuminate\Support\Str;
 use BenSampo\Embed\ServiceBase;
+use BenSampo\Embed\ValueObjects\Url;
 use Illuminate\Support\Facades\Http;
 
 class Miro extends ServiceBase
 {
-    public static function detect(string $url): bool
+    public static function detect(Url $url): bool
     {
         return Str::startsWith($url, [
             'https://miro.com/miroverse/category/',

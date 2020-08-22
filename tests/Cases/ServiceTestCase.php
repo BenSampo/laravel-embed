@@ -3,6 +3,7 @@
 namespace BenSampo\Embed\Tests\Cases;
 
 use BenSampo\Embed\ServiceContract;
+use BenSampo\Embed\ValueObjects\Url;
 
 abstract class ServiceTestCase extends ApplicationTestCase
 {
@@ -17,7 +18,8 @@ abstract class ServiceTestCase extends ApplicationTestCase
     protected function service(): ServiceContract
     {
         $serviceClass = $this->serviceClass();
-        return new $serviceClass($this->validUrls()[0]);
+        $url = new Url($this->validUrls()[0]);
+        return new $serviceClass($url);
     }
 
     public function test_it_renders_the_correct_view()
@@ -28,7 +30,7 @@ abstract class ServiceTestCase extends ApplicationTestCase
     public function test_it_detects_appropriate_urls()
     {
         foreach($this->validUrls() as $url) {
-            $this->assertTrue($this->service()->detect($url));
+            $this->assertTrue($this->service()->detect(new Url($url)));
         }
     }
 

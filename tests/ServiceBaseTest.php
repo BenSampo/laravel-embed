@@ -2,7 +2,9 @@
 
 namespace BenSampo\Embed\Tests;
 
+use BenSampo\Embed\ServiceContract;
 use Illuminate\Contracts\View\View;
+use BenSampo\Embed\ValueObjects\Url;
 use BenSampo\Embed\ValueObjects\Ratio;
 use BenSampo\Embed\Tests\Fixtures\Services\Dummy;
 use BenSampo\Embed\Tests\Cases\ApplicationTestCase;
@@ -10,25 +12,36 @@ use BenSampo\Embed\Tests\Fixtures\Services\DummyTwo;
 
 class ServiceBaseTest extends ApplicationTestCase
 {
+    protected ServiceContract $dummyService1;
+    protected ServiceContract $dummyService2;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->dummyService1 = (new Dummy(new Url('https://dummy.com')));
+        $this->dummyService2 = (new DummyTwo(new Url('https://dummy-two.com')));
+    }
+
     public function test_it_renders_a_view()
     {
-        $this->assertInstanceOf(View::class, (new Dummy('https://dummy.com'))->view());
+        $this->assertInstanceOf(View::class, $this->dummyService1->view());
     }
 
     public function test_it_can_guess_view_name()
     {
-        $this->assertEquals('embed::services.dummy', (new Dummy('https://dummy.com'))->view()->name());
-        $this->assertEquals('embed::services.dummy-two', (new DummyTwo('https://dummy-two.com'))->view()->name());
+        $this->assertEquals('embed::services.dummy', $this->dummyService1->view()->name());
+        $this->assertEquals('embed::services.dummy-two', $this->dummyService2->view()->name());
     }
 
     public function test_it_can_pass_view_data()
     {
-        $this->assertEquals('bar', (new Dummy('https://dummy.com'))->view()->getData()['foo']);
+        $this->assertEquals('bar', $this->dummyService1->view()->getData()['foo']);
     }
 
     public function test_it_can_set_the_aspect_ratio()
     {
         $ratio = new Ratio('4:3');
-        $this->assertEquals($ratio, (new Dummy('https://dummy.com'))->setAspectRatio($ratio)->view()->getData()['aspectRatio']);
+        $this->assertEquals($ratio, $this->dummyService1->setAspectRatio($ratio)->view()->getData()['aspectRatio']);
     }
 }

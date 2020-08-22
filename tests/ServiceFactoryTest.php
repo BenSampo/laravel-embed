@@ -3,6 +3,7 @@
 namespace BenSampo\Embed\Tests;
 
 use BenSampo\Embed\ServiceFactory;
+use BenSampo\Embed\ValueObjects\Url;
 use BenSampo\Embed\Services\Fallback;
 use BenSampo\Embed\Tests\Fixtures\Services\Dummy;
 use BenSampo\Embed\Tests\Cases\ApplicationTestCase;
@@ -15,8 +16,8 @@ class ServiceFactoryTest extends ApplicationTestCase
     {
         ServiceFactory::fake();
 
-        $this->assertInstanceOf(Dummy::class, ServiceFactory::getByUrl('https://dummy.com'));
-        $this->assertInstanceOf(DummyTwo::class, ServiceFactory::getByUrl('https://dummy-two.com'));
+        $this->assertInstanceOf(Dummy::class, ServiceFactory::getByUrl(new Url('https://dummy.com')));
+        $this->assertInstanceOf(DummyTwo::class, ServiceFactory::getByUrl(new Url('https://dummy-two.com')));
     }
 
     public function test_it_throws_an_exception_if_no_service_exists_to_handle_the_url()
@@ -25,11 +26,11 @@ class ServiceFactoryTest extends ApplicationTestCase
         
         $this->expectException(ServiceNotFoundException::class);
 
-        ServiceFactory::getByUrl('https://non-existing-service.com');
+        ServiceFactory::getByUrl(new Url('https://non-existing-service.com'));
     }
 
     public function test_it_can_get_a_fallback_service()
     {
-        $this->assertInstanceOf(Fallback::class, ServiceFactory::getFallback('https://non-existing-service.com'));
+        $this->assertInstanceOf(Fallback::class, ServiceFactory::getFallback(new Url('https://non-existing-service.com')));
     }
 }

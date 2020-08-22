@@ -2,17 +2,18 @@
 
 namespace BenSampo\Embed;
 
+use BenSampo\Embed\ValueObjects\Url;
 use Symfony\Component\Finder\Finder;
+use BenSampo\Embed\Services\Fallback;
 use BenSampo\Embed\Tests\Fakes\ServiceFactoryFake;
 use BenSampo\Embed\Exceptions\ServiceNotFoundException;
-use BenSampo\Embed\Services\Fallback;
 
 class ServiceFactory
 {
     protected $serviceClassesPath =  __DIR__ . '/Services';
     protected $serviceClassesNamespace =  "BenSampo\Embed\Services\\";
 
-    public static function getByUrl(string $url): ServiceContract
+    public static function getByUrl(Url $url): ServiceContract
     {
         $factory = self::resolve();
 
@@ -25,7 +26,7 @@ class ServiceFactory
         throw new ServiceNotFoundException($url);
     }
 
-    public static function getFallback(string $url): ServiceContract
+    public static function getFallback(Url $url): ServiceContract
     {
         return new Fallback($url);
     }
