@@ -20,6 +20,11 @@ class EmbedServiceProvider extends ServiceProvider
         Blade::component('embed', EmbedViewComponent::class);
         Blade::component('embed-responsive-wrapper', ResponsiveWrapperViewComponent::class);
         Blade::component('embed-styles', StylesViewComponent::class);
+
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'embed');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/embed'),
+        ]);
     }
 }
