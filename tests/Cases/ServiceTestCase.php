@@ -30,7 +30,7 @@ abstract class ServiceTestCase extends ApplicationTestCase
     public function test_it_detects_appropriate_urls()
     {
         foreach($this->validUrls() as $url) {
-            $this->assertTrue($this->service()->detect(new Url($url)));
+            $this->assertTrue($this->service()->detect(new Url($url)), "Service didn't correctly detect: $url");
         }
     }
 
