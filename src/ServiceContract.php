@@ -10,5 +10,6 @@ interface ServiceContract
 {
     public static function detect(Url $url): bool;
     public function view(): View;
+    public function cacheAndRender(): string;
     public function setAspectRatio(?Ratio $aspectRatio): ServiceContract;
 }

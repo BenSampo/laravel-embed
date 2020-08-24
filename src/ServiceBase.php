@@ -2,10 +2,11 @@
 
 namespace BenSampo\Embed;
 
-use BenSampo\Embed\ValueObjects\Ratio;
-use BenSampo\Embed\ValueObjects\Url;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
+use BenSampo\Embed\ValueObjects\Url;
+use Illuminate\Support\Facades\Cache;
+use BenSampo\Embed\ValueObjects\Ratio;
 
 abstract class ServiceBase implements ServiceContract
 {
@@ -18,11 +19,18 @@ abstract class ServiceBase implements ServiceContract
     }
 
     abstract public static function detect(Url $url): bool;
+
+    public function cacheAndRender(): string
+    {
+        return Cache::rememberForever($this->cacheKey(), function() {
+            return $this->view()->render();
+        });
+    }
     
     public function view(): View
     {
         return view($this->fullyQualifiedViewName(), array_merge($this->viewData(), [
-            'aspectRatio' => $this->aspectRatio ?? $this->defaultAspectRatio(),
+            'aspectRatio' => $this->aspectRatio(),
         ]));
     }
 
@@ -36,6 +44,11 @@ abstract class ServiceBase implements ServiceContract
     protected function viewName(): string
     {
         return $this->guessViewName();
+    }
+
+    protected function aspectRatio(): Ratio
+    {
+        return $this->aspectRatio ?? $this->defaultAspectRatio();
     }
 
     protected function defaultAspectRatio(): Ratio
@@ -56,5 +69,14 @@ abstract class ServiceBase implements ServiceContract
     protected function guessViewName(): string
     {
         return Str::of(class_basename($this))->kebab()->lower();
+    }
+
+    protected function cacheKey(): string
+    {
+        $serviceName = class_basename(static::class);
+        $url = (string) $this->url;
+        $aspectRatio = $this->aspectRatio()->width . ':' . $this->aspectRatio()->height;
+
+        return $serviceName . '_' . $url . '_' . $aspectRatio;
     }
 }

@@ -31,7 +31,6 @@ class EmbedViewComponent extends Component
 
         return $this->service
             ->setAspectRatio($this->aspectRatio)
-            ->view()
-            ->render();
+            ->cacheAndRender();
     }
 }
