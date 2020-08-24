@@ -1,8 +1,6 @@
-<div align="center" style="font-size: 25px; margin-bottom: 20px; font-weight: bold">
-Laravel Embed
-</div>
+# Laravel Embed
 
-<p align="center"><img src="https://github.com/BenSampo/laravel-embed/raw/master/branding/github-open-graph-image.png?sanitize=true" alt="Laravel Embed" width="600" style="margin-bottom: 20px"></p>
+<p align="center"><img src="https://github.com/BenSampo/laravel-embed/raw/master/branding/github-open-graph-image.png?sanitize=true" alt="Laravel Embed" style="margin-bottom: 20px"></p>
 
 <p align="center" style="margin-bottom: 20px">
 Effortless responsive embeds for videos, slideshows and more.<br>
