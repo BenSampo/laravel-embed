@@ -71,6 +71,26 @@ The aspect ratio is maintained at different viewport sizes.
 
 If no service exists to handle the URL a fallback view is rendered. You can customize this by publishing the views and editing `/resources/views/vendor/embed/services/fallback.blade.php`.
 
+### Validation
+
+A validation rule can be used to check for any supported service, or only those specified. A validation message replacer will replace `:services` with a human readable list of the services passed in.
+
+```php
+Validator::make(
+    ['url' =>  $request->get('youtube_url')],
+    ['url' => 'embed_service'],
+    ['embed_service' => 'The :attribute must be a URL from :services']
+);
+```
+
+```php
+Validator::make(
+    ['url' =>  $request->get('youtube_url')],
+    ['url' => 'embed_service:you-tube,vimeo,miro'],
+    ['embed_service' => 'The :attribute must be a URL from :services']
+);
+```
+
 ## Embed Services
 
 Laravel embed supports multiple popular embed services such as YouTube, Vimeo and Slideshare.  
