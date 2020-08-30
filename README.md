@@ -73,22 +73,38 @@ If no service exists to handle the URL a fallback view is rendered. You can cust
 
 ### Validation
 
-A validation rule can be used to check for any supported service, or only those specified. A validation message replacer will replace `:services` with a human readable list of the services passed in.
+A validation rule can be used to check for a supported service in a given URL.
 
 ```php
-Validator::make(
-    ['url' =>  $request->get('youtube_url')],
-    ['url' => 'embed_service'],
-    ['embed_service' => 'The :attribute must be a URL from :services']
-);
+use BenSampo\Embed\Rules\EmbeddableUrl;
+
+public function store(Request $request)
+{
+    $this->validate($request, [
+        'url' => ['required', new EmbeddableUrl],
+    ]);
+}
 ```
 
+You may specify a list of allowed services using the `allowedServices` method.
+
 ```php
-Validator::make(
-    ['url' =>  $request->get('youtube_url')],
-    ['url' => 'embed_service:you-tube,vimeo,miro'],
-    ['embed_service' => 'The :attribute must be a URL from :services']
-);
+use BenSampo\Embed\Services\Vimeo;
+use BenSampo\Embed\Services\YouTube;
+use BenSampo\Embed\Rules\EmbeddableUrl;
+
+public function store(Request $request)
+{
+    $this->validate($request, [
+        'url' => [
+            'required', 
+            (new EmbeddableUrl)->allowedServices([
+                YouTube::class,
+                Vimeo::class
+            ])
+        ],
+    ]);
+}
 ```
 
 ## Embed Services
