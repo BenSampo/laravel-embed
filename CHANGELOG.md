@@ -7,13 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v1.1.0...master)
 
-## [1.1.0] - 2020-08-30
+## [1.1.0](https://github.com/BenSampo/laravel-enum/compare/v1.0.0...v1.1.0) - 2020-08-30
 
 ### Added
 
 - Added validation rule for embeddable services [#1](https://github.com/BenSampo/laravel-embed/pull/1)
 
-## [1.0.0] - 2020-08-24
+## 1.0.0 - 2020-08-24
 
 ### Added
 
