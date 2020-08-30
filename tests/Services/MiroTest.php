@@ -7,6 +7,16 @@ use BenSampo\Embed\Tests\Cases\ServiceTestCase;
 
 class MiroTest extends ServiceTestCase
 {
+    /**
+     * Overriding this test for Miro because it returns a different embed URL each time...
+     */
+    public function test_it_has_expected_view_data()
+    {
+        foreach ($this->expectedViewData() as $key => $value) {
+            $this->assertStringStartsWith('https://miro.com/app/embed/', $this->service()->view()->getData()[$key]);
+        }
+    }
+    
     protected function serviceClass(): string
     {
         return Miro::class;
