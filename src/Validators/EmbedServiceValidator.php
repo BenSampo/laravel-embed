@@ -2,52 +2,48 @@
 
 namespace BenSampo\Embed\Validators;
 
-use BenSampo\Embed\Exceptions\ServiceNotFoundException;
+use Illuminate\Support\Str;
 use BenSampo\Embed\ServiceFactory;
 use BenSampo\Embed\ValueObjects\Url;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
+use BenSampo\Embed\Exceptions\ServiceNotFoundException;
 
 
 class EmbedServiceValidator
 {
-	function validate(string $attribute, $value, array $parameters, Validator $validator)
+	function validate(string $attribute, $value, array $supportedServices, Validator $validator)
 	{
-		$url = new Url($value);
-
 		try {
+			$url = new Url($value);
 			$service = ServiceFactory::getByUrl($url);
 		} catch (ServiceNotFoundException $th) {
 			return false;
 		}
 
-		$supported_services = $parameters;
-		if (count($supported_services) === 0) { // No constraint on which services
+		if (count($supportedServices) === 0) {
 			return true;
-		} else {
-			$service_name = Str::of(class_basename($service))->kebab()->lower()->__toString();
-			return in_array($service_name, $supported_services);
-		}
+		} 
+
+		$serviceName = Str::of(class_basename($service))->kebab()->lower()->__toString();
+		return in_array($serviceName, $supportedServices);
 	}
 
 
-	function replacer(string $message, string $attribute, string $rule, array $parameters, Validator $validator)
+	function replacer(string $message, string $attribute, string $rule, array $supportedServices, Validator $validator)
 	{
-		$supported_services = $parameters;
-		$supported_services = array_map([Str::class, 'studly'], $supported_services);
+		$supportedServices = array_map([Str::class, 'studly'], $supportedServices);
 
-		if (count($supported_services) === 0) {
-			$services_string = _('a supported service');
+		if (count($supportedServices) === 0) {
+			$servicesString = _('a supported service');
 		} else {
-			if (count($supported_services) === 1) {
-				$services_string = $supported_services[0];
+			if (count($supportedServices) === 1) {
+				$servicesString = $supportedServices[0];
 			} else {
-				$last = array_pop($supported_services);
-				$services_string = implode(', ', $supported_services) .' '. _('or') .' '. $last;
+				$last = array_pop($supportedServices);
+				$servicesString = implode(', ', $supportedServices) .' '. _('or') .' '. $last;
 			}
 		}
 
-		return str_replace(':services', $services_string, $message);
+		return str_replace(':services', $servicesString, $message);
 	}
 }
