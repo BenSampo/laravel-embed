@@ -3,6 +3,7 @@
 namespace BenSampo\Embed;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use BenSampo\Embed\ViewComponents\EmbedViewComponent;
 use BenSampo\Embed\ViewComponents\StylesViewComponent;
@@ -21,7 +22,10 @@ class EmbedServiceProvider extends ServiceProvider
         Blade::component('embed-responsive-wrapper', ResponsiveWrapperViewComponent::class);
         Blade::component('embed-styles', StylesViewComponent::class);
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'embed');
+	    Validator::extend('embed_service', 'BenSampo\Embed\Validators\EmbedServiceValidator@validate');
+	    Validator::replacer('embed_service', 'BenSampo\Embed\Validators\EmbedServiceValidator@replacer');
+
+	    $this->loadViewsFrom(__DIR__.'/../resources/views', 'embed');
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/embed'),

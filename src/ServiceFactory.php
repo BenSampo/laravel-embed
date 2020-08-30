@@ -44,12 +44,7 @@ class ServiceFactory
         app()->instance(ServiceFactory::class, new ServiceFactoryFake);
     }
 
-    protected static function resolve(): self
-    {
-        return resolve(self::class);
-    }
-
-    protected function serviceClasses(): array
+    public function serviceClasses(): array
     {
         $directoryIterator = (new Finder)
             ->files()
@@ -63,5 +58,10 @@ class ServiceFactory
         }
 
         return $serviceClasses;
+    }
+
+    protected static function resolve(): self
+    {
+        return resolve(self::class);
     }
 }
