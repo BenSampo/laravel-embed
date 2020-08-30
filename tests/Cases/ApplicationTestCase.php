@@ -16,6 +16,6 @@ class ApplicationTestCase extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['view']->addNamespace('embed', __DIR__ . '/../Fixtures/Views');
+        $app['view']->addNamespace('embed', __DIR__ . '/../Fixtures/resources/views');
     }
 }
