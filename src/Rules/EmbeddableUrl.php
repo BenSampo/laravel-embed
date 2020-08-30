@@ -28,18 +28,18 @@ class EmbeddableUrl implements Rule
     public function passes($attribute, $value)
     {
         try {
-			$url = new Url($value);
-			$service = $this->serviceFactory::getByUrl($url);
-		} catch (ServiceNotFoundException $th) {
-			return false;
-		}
+            $url = new Url($value);
+            $service = $this->serviceFactory::getByUrl($url);
+        } catch (ServiceNotFoundException $th) {
+            return false;
+        }
 
-		if (count($this->allowedServices) === 0) {
-			return true;
+        if (count($this->allowedServices) === 0) {
+            return true;
         }
         
         return collect($this->allowedServices)
-            ->filter(fn($allowedService) => $service instanceof $allowedService)
+            ->filter(fn ($allowedService) => $service instanceof $allowedService)
             ->count() > 0;
     }
 
@@ -52,8 +52,8 @@ class EmbeddableUrl implements Rule
     {
         $allowedServiceClasses = count($this->allowedServices) > 0 ? $this->allowedServices : $this->serviceFactory->serviceClasses();
         $commaSeparatedServiceNames = collect($allowedServiceClasses)
-            ->reject(fn($serviceClass) => $serviceClass === Fallback::class)
-            ->map(fn($serviceClass) => class_basename($serviceClass))
+            ->reject(fn ($serviceClass) => $serviceClass === Fallback::class)
+            ->map(fn ($serviceClass) => class_basename($serviceClass))
             ->sort()
             ->join(', ', ' or ');
 
