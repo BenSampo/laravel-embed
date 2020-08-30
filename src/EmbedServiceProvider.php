@@ -22,9 +22,6 @@ class EmbedServiceProvider extends ServiceProvider
         Blade::component('embed-responsive-wrapper', ResponsiveWrapperViewComponent::class);
         Blade::component('embed-styles', StylesViewComponent::class);
 
-	    Validator::extend('embed_service', 'BenSampo\Embed\Validators\EmbedServiceValidator@validate');
-	    Validator::replacer('embed_service', 'BenSampo\Embed\Validators\EmbedServiceValidator@replacer');
-
 	    $this->loadViewsFrom(__DIR__.'/../resources/views', 'embed');
 
         $this->publishes([
