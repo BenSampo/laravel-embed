@@ -7,6 +7,8 @@ env:
   matrix:
     - LARAVEL='^7.25'
     - LARAVEL='^7.25' COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL='^8.0'
+    - LARAVEL='^8.0' COMPOSER_FLAGS="--prefer-lowest"
 
 install:
   - composer require "illuminate/contracts:${LARAVEL}" --prefer-dist --no-interaction --no-suggest
