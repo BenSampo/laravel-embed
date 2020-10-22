@@ -30,13 +30,13 @@ class ServiceBaseTest extends ApplicationTestCase
 
     public function test_it_can_guess_view_name()
     {
-        $this->assertEquals('embed::services.dummy', $this->dummyService1->view()->name());
-        $this->assertEquals('embed::services.dummy-two', $this->dummyService2->view()->name());
+        $this->assertSame('embed::services.dummy', $this->dummyService1->view()->name());
+        $this->assertSame('embed::services.dummy-two', $this->dummyService2->view()->name());
     }
 
     public function test_it_can_pass_view_data()
     {
-        $this->assertEquals('bar', $this->dummyService1->view()->getData()['foo']);
+        $this->assertSame('bar', $this->dummyService1->view()->getData()['foo']);
     }
 
     public function test_it_can_set_the_aspect_ratio()
