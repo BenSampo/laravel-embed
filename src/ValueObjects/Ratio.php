@@ -20,6 +20,11 @@ class Ratio
 
         return (float) round($percentage, 2);
     }
+    
+    public function withSlash()
+    {
+        return $this->width . '/' . $this->height;
+    }
 
     protected function parseRatioString(string $ratio): array
     {
