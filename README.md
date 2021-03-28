@@ -8,7 +8,6 @@ Created by <a href="https://sampo.co.uk">Ben Sampson</a>
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/BenSampo/laravel-embed"><img src="https://travis-ci.org/BenSampo/laravel-embed.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/bensampo/laravel-embed"><img src="https://img.shields.io/packagist/v/bensampo/laravel-embed.svg?style=flat-square&label=stable" alt="Packagist Stable Version"></a>
 <a href="https://packagist.org/packages/bensampo/laravel-embed"><img src="https://img.shields.io/packagist/dt/bensampo/laravel-embed.svg?style=flat-square" alt="Packagist downloads"></a>
 <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT Software License"></a>
@@ -16,7 +15,7 @@ Created by <a href="https://sampo.co.uk">Ben Sampson</a>
 
 ## Requirements
 
-- Laravel `7.25` or newer  
+- Laravel `7.25` or newer
 - PHP `7.4.0` or newer
 
 ## Installation
@@ -97,7 +96,7 @@ public function store(Request $request)
 {
     $this->validate($request, [
         'url' => [
-            'required', 
+            'required',
             (new EmbeddableUrl)->allowedServices([
                 YouTube::class,
                 Vimeo::class
@@ -109,7 +108,7 @@ public function store(Request $request)
 
 ## Embed Services
 
-Laravel embed supports multiple popular embed services such as YouTube, Vimeo and Slideshare.  
+Laravel embed supports multiple popular embed services such as YouTube, Vimeo and Slideshare.
 
 [See the full list &rarr;](https://github.com/BenSampo/laravel-embed/tree/master/src/Services)
 
