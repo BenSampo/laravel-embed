@@ -24,7 +24,7 @@
         "illuminate/support": "^7.25|^8.0"
     },
     "require-dev": {
-        "laravel/framework": "^7.25|^8.0",
+        "laravel/framework": "^7.25|^8.40.0",
         "orchestra/testbench": "^5.0|^6.0",
         "phpunit/phpunit": "^8.5"
     },
