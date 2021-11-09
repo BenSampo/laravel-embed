@@ -32,12 +32,12 @@ class RatioTest extends TestCase
     public function test_it_generates_a_percentage_representation()
     {
         $ratio = new Ratio('16:9');
-        $this->assertEquals(56.25, $ratio->asPercentage());
+        $this->assertSame(56.25, $ratio->asPercentage());
 
         $ratio = new Ratio('4:3');
-        $this->assertEquals(75, $ratio->asPercentage());
+        $this->assertSame(75.0, $ratio->asPercentage());
 
         $ratio = new Ratio('22:32');
-        $this->assertEquals(145.45, $ratio->asPercentage());
+        $this->assertSame(145.45, $ratio->asPercentage());
     }
 }

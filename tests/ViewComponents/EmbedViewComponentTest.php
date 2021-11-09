@@ -12,7 +12,7 @@ class EmbedViewComponentTest extends ApplicationTestCase
     {
         ServiceFactory::fake();
 
-        $this->assertEquals('Dummy service', (new EmbedViewComponent('https://dummy.com'))->render());
+        $this->assertSame('Dummy service', (new EmbedViewComponent('https://dummy.com'))->render());
     }
 
     public function test_it_renders_a_fallback_view_if_no_appropriate_service_is_found()

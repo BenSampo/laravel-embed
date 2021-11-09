@@ -24,7 +24,7 @@ abstract class ServiceTestCase extends ApplicationTestCase
 
     public function test_it_renders_the_correct_view()
     {
-        $this->assertEquals('embed::services.' . $this->expectedViewName(), $this->service()->view()->name());
+        $this->assertSame('embed::services.' . $this->expectedViewName(), $this->service()->view()->name());
     }
 
     public function test_it_detects_appropriate_urls()
