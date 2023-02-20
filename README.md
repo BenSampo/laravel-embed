@@ -15,7 +15,7 @@ Created by <a href="https://sampo.co.uk">Ben Sampson</a>
 
 ## Requirements
 
-- Laravel `7.25` or newer
+- Laravel `8` or newer
 - PHP `7.4.0` or newer
 
 ## Installation

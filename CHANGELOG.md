@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v1.4.0...master)
+## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v2.0.0...master)
+
+## [2.0.0](https://github.com/BenSampo/laravel-embed/compare/v1.4.0...v2.0.0) - 2023-02-20
+
+### Added
+
+- Laravel 10 support [#14](https://github.com/BenSampo/laravel-embed/pull/14)
+
+### Removed
+
+- Laravel 7 support
 
 ## [1.4.0](https://github.com/BenSampo/laravel-embed/compare/v1.3.0...v1.4.0) - 2022-02-10
 
