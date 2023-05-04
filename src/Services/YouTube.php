@@ -29,7 +29,7 @@ class YouTube extends ServiceBase
      */
     protected function videoId(): ?string
     {
-        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $this->url, $match);
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/|youtube.com/shorts/)([^"&?/ ]{11})%i', $this->url, $match);
 
         if (array_key_exists(1, $match)) {
             return $match[1];
