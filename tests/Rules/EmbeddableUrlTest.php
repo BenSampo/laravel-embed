@@ -117,7 +117,7 @@ class EmbeddableUrlTest extends ApplicationTestCase
     {
         $url = 'https://www.real.com/video/xg4y8d';
         $rule = new EmbeddableUrl;
-        $expectedMessage = 'The url must be a URL from one of the following services: Dailymotion, Miro, Slideshare, Vimeo or YouTube.';
+        $expectedMessage = 'The url must be a URL from one of the following services: Dailymotion, GoogleMaps, Miro, Slideshare, Vimeo or YouTube.';
 
         $this->assertValidationMessage($url, $rule, $expectedMessage);
     }
