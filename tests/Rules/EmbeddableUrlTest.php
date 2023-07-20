@@ -19,6 +19,8 @@ class EmbeddableUrlTest extends ApplicationTestCase
             'https://miro.com/miroverse/category/workshops/remote-ux-workshops',
             'http://www.slideshare.net/haraldf/business-quotes-for-2011',
             'https://vimeo.com/148751763',
+            'https://vimeo.com/148751763/243529c0ef',
+            'https://vimeo.com/148751763/243529c0ef?share=copy',
             'https://youtu.be/dQw4w9WgXcQ',
             'https://www.youtube.com/embed/dQw4w9WgXcQ',
         ];

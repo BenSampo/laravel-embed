@@ -28,6 +28,8 @@ class VimeoTest extends ServiceTestCase
     {
         return [
             'https://vimeo.com/148751763',
+            'https://vimeo.com/148751763/243529c0ef',
+            'https://vimeo.com/148751763/243529c0ef?share=copy',
         ];
     }
 }
