@@ -22,7 +22,7 @@ class Vimeo extends ServiceBase
      */
     protected function parseUrl(): ?array
     {
-        preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})\/?([a-z0-9]+)[?]?.*/', $this->url, $match);
+        preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})\/?([a-z0-9]+)?[?]?.*/', $this->url, $match);
         
         if (array_key_exists(5, $match)) {
             return [
