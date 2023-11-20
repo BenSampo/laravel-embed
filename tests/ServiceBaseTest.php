@@ -44,4 +44,10 @@ class ServiceBaseTest extends ApplicationTestCase
         $ratio = new Ratio('4:3');
         $this->assertEquals($ratio, $this->dummyService1->setAspectRatio($ratio)->view()->getData()['aspectRatio']);
     }
+
+    public function test_it_can_set_a_label()
+    {
+        $label = 'A different aria label';
+        $this->assertEquals($label, $this->dummyService1->setLabel($label)->view()->getData()['label']);
+    }
 }

@@ -12,4 +12,5 @@ interface ServiceContract
     public function view(): View;
     public function cacheAndRender(): string;
     public function setAspectRatio(?Ratio $aspectRatio): ServiceContract;
+    public function setLabel(?string $label): ServiceContract;
 }

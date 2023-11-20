@@ -21,6 +21,7 @@ class VimeoTest extends ServiceTestCase
     {
         return [
             'videoId' => '148751763',
+            'label' => 'An embedded video',
         ];
     }
 

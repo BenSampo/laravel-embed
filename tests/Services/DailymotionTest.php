@@ -21,6 +21,7 @@ class DailymotionTest extends ServiceTestCase
     {
         return [
             'videoId' => 'xg4y8d',
+            'label' => 'An embedded video',
         ];
     }
 
