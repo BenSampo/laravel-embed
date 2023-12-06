@@ -29,8 +29,13 @@ class Slideshare extends ServiceBase
     {
         $OEmbedHtml = Http::get("https://www.slideshare.net/api/oembed/2?url={$this->url}&format=json")->json()['html'];
 
-        $dom = new DOMDocument;
+        $dom = new DOMDocument();
         $dom->loadHTML($OEmbedHtml);
         return $dom->getElementsByTagName('iframe')[0]->getAttribute('src');
+    }
+
+    protected function defaultLabel(): string
+    {
+        return __('An embedded presentation');
     }
 }

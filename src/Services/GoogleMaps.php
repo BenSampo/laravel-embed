@@ -31,4 +31,9 @@ class GoogleMaps extends ServiceBase
     {
         return $this->url;
     }
+
+    protected function defaultLabel(): string
+    {
+        return __('An embedded map');
+    }
 }

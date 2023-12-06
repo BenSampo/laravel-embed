@@ -29,8 +29,13 @@ class Miro extends ServiceBase
         $html = Http::get($this->url)->body();
 
         libxml_use_internal_errors(true);
-        $dom = new DOMDocument;
+        $dom = new DOMDocument();
         $dom->loadHTML($html);
         return $dom->getElementsByTagName('iframe')[0]->getAttribute('src');
+    }
+
+    protected function defaultLabel(): string
+    {
+        return __('An embedded diagram');
     }
 }

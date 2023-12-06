@@ -13,7 +13,7 @@ class MiroTest extends ServiceTestCase
 
         parent::setUp();
     }
-    
+
     /**
      * Overriding this test for Miro because it returns a different embed URL each time...
      */
@@ -23,12 +23,12 @@ class MiroTest extends ServiceTestCase
             $this->assertStringStartsWith('https://miro.com/app/embed/', $this->service()->view()->getData()[$key]);
         }
     }
-    
+
     protected function serviceClass(): string
     {
         return Miro::class;
     }
-    
+
     protected function expectedViewName(): string
     {
         return 'miro';
@@ -38,7 +38,7 @@ class MiroTest extends ServiceTestCase
     {
         return [
             'iframeUrl' => 'https://miro.com/app/embed/o9J_kquX_s8=/?autoplay=yep',
-            'label' => 'An embedded video',
+            'label' => 'An embedded diagram',
         ];
     }
 

@@ -11,7 +11,7 @@ class SlideshareTest extends ServiceTestCase
     {
         return Slideshare::class;
     }
-    
+
     protected function expectedViewName(): string
     {
         return 'slideshare';
@@ -21,7 +21,7 @@ class SlideshareTest extends ServiceTestCase
     {
         return [
             'iframeUrl' => 'https://www.slideshare.net/slideshow/embed_code/key/6PCWPGFw9SwsAY',
-            'label' => 'An embedded video',
+            'label' => 'An embedded presentation',
         ];
     }
 
