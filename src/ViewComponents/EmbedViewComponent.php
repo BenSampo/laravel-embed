@@ -14,11 +14,13 @@ class EmbedViewComponent extends Component
     protected ServiceContract $service;
     protected Url $url;
     protected ?Ratio $aspectRatio;
+    protected ?string $label;
 
-    public function __construct(string $url, string $aspectRatio = null)
+    public function __construct(string $url, string $aspectRatio = null, string $label = null)
     {
         $this->url = new Url($url);
         $this->aspectRatio = $aspectRatio ? new Ratio($aspectRatio) : null;
+        $this->label = $label;
     }
 
     public function render(): string
@@ -31,6 +33,7 @@ class EmbedViewComponent extends Component
 
         return $this->service
             ->setAspectRatio($this->aspectRatio)
+            ->setLabel($this->label)
             ->cacheAndRender();
     }
 }

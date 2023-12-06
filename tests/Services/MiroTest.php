@@ -38,6 +38,7 @@ class MiroTest extends ServiceTestCase
     {
         return [
             'iframeUrl' => 'https://miro.com/app/embed/o9J_kquX_s8=/?autoplay=yep',
+            'label' => 'An embedded video',
         ];
     }
 
