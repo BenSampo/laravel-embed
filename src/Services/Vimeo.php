@@ -27,7 +27,8 @@ class Vimeo extends ServiceBase
         if (array_key_exists(5, $match)) {
             return [
                 'videoId' => $match[5],
-                'videoHash' => isset($match[6]) ? $match[6] : NULL
+                'videoHash' => isset($match[6]) ? $match[6] : NULL,
+                'autoplay' => $this->autoPlay() ? '?autoplay=1' : NULL,
             ];
         }
 

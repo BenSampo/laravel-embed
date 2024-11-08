@@ -1,7 +1,7 @@
 <x-embed-responsive-wrapper :aspect-ratio="$aspectRatio">
-    <iframe 
+    <iframe
             aria-label="{{ $label }}"
-            src="https://player.vimeo.com/video/{{ $videoId }}@if($videoHash)?h={{ $videoHash}}@endif"
+            src="https://player.vimeo.com/video/{{ $videoId }}@if($videoHash)?h={{ $videoHash}}@endif{{$autoplay}}"
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen

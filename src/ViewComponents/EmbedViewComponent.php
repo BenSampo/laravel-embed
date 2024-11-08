@@ -15,12 +15,14 @@ class EmbedViewComponent extends Component
     protected Url $url;
     protected ?Ratio $aspectRatio;
     protected ?string $label;
+    protected ?bool $autoPlay;
 
-    public function __construct(string $url, string $aspectRatio = null, string $label = null)
+    public function __construct(string $url, string $aspectRatio = null, string $label = null, bool $autoPlay = false)
     {
         $this->url = new Url($url);
         $this->aspectRatio = $aspectRatio ? new Ratio($aspectRatio) : null;
         $this->label = $label;
+        $this->autoPlay = $autoPlay;
     }
 
     public function render(): string
@@ -34,6 +36,7 @@ class EmbedViewComponent extends Component
         return $this->service
             ->setAspectRatio($this->aspectRatio)
             ->setLabel($this->label)
+            ->setAutoPlay($this->autoPlay)
             ->cacheAndRender();
     }
 }

@@ -66,6 +66,16 @@ By default most embedded services are shown at a ratio of `16:9`. Some services 
 
 The aspect ratio is maintained at different viewport sizes.
 
+### Setting AutoPlay
+
+By default, this setting is set to `false`. If you want to set the autoplay to true, you can do so by passing in a boolean to the `auto-play` attribute.
+
+This feature is only supported by YouTube and Vimeo services.
+
+```html
+<x-embed url="https://www.youtube.com/watch?v=oHg5SJYRHA0" auto-play="true" />
+```
+
 ### Fallback
 
 If no service exists to handle the URL a fallback view is rendered. You can customize this by publishing the views and editing `/resources/views/vendor/embed/services/fallback.blade.php`.

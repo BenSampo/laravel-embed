@@ -16,6 +16,8 @@ abstract class ServiceBase implements ServiceContract
 
     protected ?string $label;
 
+    protected ?bool $autoPlay;
+
     public function __construct(Url $url)
     {
         $this->url = $url;
@@ -52,6 +54,13 @@ abstract class ServiceBase implements ServiceContract
         return $this;
     }
 
+    public function setAutoPlay(?bool $autoPlay): ServiceContract
+    {
+        $this->autoPlay = $autoPlay ?? $this->defaultAutoPlay();
+
+        return $this;
+    }
+
     protected function viewName(): string
     {
         return $this->guessViewName();
@@ -67,6 +76,11 @@ abstract class ServiceBase implements ServiceContract
         return $this->label ?? $this->defaultLabel();
     }
 
+    protected function autoPlay(): bool
+    {
+        return $this->autoPlay ?? $this->defaultAutoPlay();
+    }
+
     protected function defaultAspectRatio(): Ratio
     {
         return new Ratio('16:9');
@@ -75,6 +89,11 @@ abstract class ServiceBase implements ServiceContract
     protected function defaultLabel(): string
     {
         return __('An embedded video');
+    }
+
+    protected function defaultAutoPlay(): bool
+    {
+        return false;
     }
 
     private function fullyQualifiedViewName(): string

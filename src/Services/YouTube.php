@@ -16,6 +16,7 @@ class YouTube extends ServiceBase
     {
         return [
             'videoId' => $this->videoId(),
+            'autoplay' => $this->autoPlay() ? '?autoplay=1&mute=1' : NULL
         ];
     }
 

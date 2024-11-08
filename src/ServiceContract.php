@@ -13,4 +13,5 @@ interface ServiceContract
     public function cacheAndRender(): string;
     public function setAspectRatio(?Ratio $aspectRatio): ServiceContract;
     public function setLabel(?string $label): ServiceContract;
+    public function setAutoPlay(?bool $autoPlay): ServiceContract;
 }
