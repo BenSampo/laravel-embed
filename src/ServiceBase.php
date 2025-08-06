@@ -6,6 +6,7 @@ use BenSampo\Embed\ValueObjects\Ratio;
 use BenSampo\Embed\ValueObjects\Url;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\View as ViewFacade;
 use Illuminate\Support\Str;
 
 abstract class ServiceBase implements ServiceContract
@@ -32,7 +33,10 @@ abstract class ServiceBase implements ServiceContract
 
     public function view(): View
     {
-        return view($this->fullyQualifiedViewName(), array_merge($this->viewData(), [
+        return ViewFacade::first([
+            'vendor.embed.services.' . $this->viewName(),
+            $this->fullyQualifiedViewName()
+        ], array_merge($this->viewData(), [
             'aspectRatio' => $this->aspectRatio(),
             'label'       => $this->label(),
         ]));
