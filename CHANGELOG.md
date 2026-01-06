@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v3.0.0...master)
+## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v3.0.1...master)
+
+## [3.0.1](https://github.com/BenSampo/laravel-embed/compare/v3.0.0...v3.0.1) - 2026-01-06
+
+### Fixed
+
+- Fixed aria-label (removes debug code) [#28](https://github.com/BenSampo/laravel-embed/pull/28)
 
 ## [3.0.0](https://github.com/BenSampo/laravel-embed/compare/v2.5.0...v3.0.0) - 2025-03-26
 
