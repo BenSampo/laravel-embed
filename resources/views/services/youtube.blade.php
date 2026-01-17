@@ -1,7 +1,7 @@
 <x-embed-responsive-wrapper :aspect-ratio="$aspectRatio">
     <iframe
         aria-label="{{ $label }}"
-        src="https://www.youtube-nocookie.com/embed/{{ $videoId }}"
+        src="https://www.youtube-nocookie.com/embed/{{ $videoId }}?start={{ $start }}"
         frameborder="0"
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen

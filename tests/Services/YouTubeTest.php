@@ -21,6 +21,7 @@ class YouTubeTest extends ServiceTestCase
     {
         return [
             'videoId' => 'dQw4w9WgXcQ',
+            'start' => '0',
             'label' => 'An embedded video',
         ];
     }
