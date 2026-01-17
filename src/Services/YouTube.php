@@ -16,6 +16,7 @@ class YouTube extends ServiceBase
     {
         return [
             'videoId' => $this->videoId(),
+            'start' => $this->startTime(),
         ];
     }
 
@@ -36,5 +37,16 @@ class YouTube extends ServiceBase
         }
 
         return null;
+    }
+
+    protected function startTime(): string
+    {
+        preg_match('/[?&](?:t|start)=(\d+)(?:s)?/i',  $this->url, $match);
+
+        if (array_key_exists(1, $match)) {
+            return $match[1];
+        }
+
+        return '0';
     }
 }
