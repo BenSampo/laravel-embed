@@ -1,57 +1,57 @@
 {
-    "name": "bensampo/laravel-embed",
-    "type": "library",
-    "description": "Painless responsive embeds for videos, slideshows and more.",
-    "keywords": [
-        "bensampo",
-        "embed",
-        "laravel",
-        "package"
-    ],
-    "homepage": "https://github.com/bensampo/laravel-embed",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ben Sampson",
-            "homepage": "https://sampo.co.uk",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.4.0|^8.0",
-        "guzzlehttp/guzzle": "^6.3.1|^7.0",
-        "illuminate/contracts": "^8.83.27|^9.0|^10.0|^11.0|^12.0",
-        "illuminate/support": "^8.83.27|^9.0|^10.0|^11.0|^12.0"
-    },
-    "require-dev": {
-        "laravel/framework": "^8.83.27|^9.0|^10.0|^11.0|^12.0",
-        "orchestra/testbench": "^5.0|^6.0|^9.0|^10.0",
-        "phpunit/phpunit": "^8.5.23|^9.0|^10.5|^11.5.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "BenSampo\\Embed\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "BenSampo\\Embed\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "phpunit"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "laravel": {
-            "providers": [
-                "BenSampo\\Embed\\EmbedServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
+  "name": "bensampo/laravel-embed",
+  "type": "library",
+  "description": "Painless responsive embeds for videos, slideshows and more.",
+  "keywords": [
+    "bensampo",
+    "embed",
+    "laravel",
+    "package"
+  ],
+  "homepage": "https://github.com/bensampo/laravel-embed",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ben Sampson",
+      "homepage": "https://sampo.co.uk",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "^7.4.0|^8.0",
+    "guzzlehttp/guzzle": "^6.3.1|^7.0",
+    "illuminate/contracts": "^8.83.27|^9.0|^10.0|^11.0|^12.0",
+    "illuminate/support": "^8.83.27|^9.0|^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+    "laravel/framework": "^8.83.27|^9.0|^10.0|^11.0|^12.0",
+    "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+    "phpunit/phpunit": "^8.5.23|^9.0|^10.5|^11.5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "BenSampo\\Embed\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BenSampo\\Embed\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "laravel": {
+      "providers": [
+        "BenSampo\\Embed\\EmbedServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
 }
