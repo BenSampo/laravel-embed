@@ -12,6 +12,7 @@
     <testsuites>
         <testsuite name="Main Tests">
             <directory suffix="Test.php">./tests/</directory>
+            <exclude>./tests/Services</exclude>
         </testsuite>
         <testsuite name="Service Tests">
             <directory suffix="Test.php">./tests/Services</directory>
