@@ -9,13 +9,16 @@ class YouTube extends ServiceBase
 {
     public static function detect(Url $url): bool
     {
-        return (new self($url))->videoId() !== null;
+        $instance = new self($url);
+
+        return $instance->videoId() !== null || $instance->playlistId() !== null;
     }
 
     protected function viewData(): array
     {
         return [
             'videoId' => $this->videoId(),
+            'playlistId' => $this->playlistId(),
             'start' => $this->startTime(),
         ];
     }
@@ -39,9 +42,20 @@ class YouTube extends ServiceBase
         return null;
     }
 
+    protected function playlistId(): ?string
+    {
+        preg_match('/[?&]list=([a-zA-Z0-9_-]+)/i', $this->url, $match);
+
+        if (array_key_exists(1, $match)) {
+            return $match[1];
+        }
+
+        return null;
+    }
+
     protected function startTime(): string
     {
-        preg_match('/[?&](?:t|start)=(\d+)(?:s)?/i',  $this->url, $match);
+        preg_match('/[?&](?:t|start)=(\d+)(?:s)?/i', $this->url, $match);
 
         if (array_key_exists(1, $match)) {
             return $match[1];
