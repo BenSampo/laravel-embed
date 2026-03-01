@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v3.0.2...master)
+## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v3.0.3...master)
+
+## [3.0.3](https://github.com/BenSampo/laravel-embed/compare/v3.0.2...v3.0.3) - 2026-03-01
+
+### Added
+
+- Add support for embedding a YouTube playlist [#30](https://github.com/BenSampo/laravel-embed/pull/30)
 
 ## [3.0.2](https://github.com/BenSampo/laravel-embed/compare/v3.0.1...v3.0.2) - 2026-01-19
 
