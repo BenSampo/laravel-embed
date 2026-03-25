@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/BenSampo/laravel-embed/compare/v3.0.3...master)
 
+## [3.1.0](https://github.com/BenSampo/laravel-embed/compare/v3.0.3...v3.1.0) - 2026-03-25
+
+### Added
+
+- Laravel 13.x Compatibility [#31](https://github.com/BenSampo/laravel-embed/pull/31)
+
 ## [3.0.3](https://github.com/BenSampo/laravel-embed/compare/v3.0.2...v3.0.3) - 2026-03-01
 
 ### Added
